@@ -1,3 +1,4 @@
+
 __author__ = "Худолей Артем Викторович"
 
 # 3. Склонение слова
@@ -12,3 +13,5 @@ for list_n in range(1, 101):
     if 4 < list_n:
         idx = 2
     print(str(list_n) + " процент" + str(sk[idx]))
+
+
