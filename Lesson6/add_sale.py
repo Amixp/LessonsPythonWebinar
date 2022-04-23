@@ -6,12 +6,26 @@
 # запуск скрипта с двумя числами — выводить записи, начиная с номера,
 # равного первому числу, по номер, равный второму числу, включительно.
 import sys
-from unicodedata import decimal
+from constants import COST_LEN
 
-cost = sys.argv[1]
-if not cost.isdecimal():
-    sys.exit(1)
+if __name__ == '__main__':
+    if len(sys.argv) == 1:
+        print('Нет числа! Выходим.')
+        exit(1)
+    cost = sys.argv[1]
+    if len(cost) > COST_LEN:
+        print(f"Число слишком большое, чем {COST_LEN} символов")
+        exit(1)
 
-with open('bakery.csv','wt',encoding='utf-8') as f:
-    print(decimal(cost), file=f)
+    try:
+        cost = float(cost.replace(',','.'))
+    except ValueError:
+        print('Это не число! Выходим.')
+        exit(1)
+    except Exception:
+        print('Это что ещё такое?')
+        exit(1)
+
+    with open('bakery.csv', 'a+', encoding='utf-8') as f:
+        print(str(cost).zfill(COST_LEN), file=f)
 
