@@ -41,7 +41,7 @@ profile = """
         - models.py      
         - views.py
         - templates:
-          - mainapp:
+          - authapp:
             - base.html
             - index.html
     """

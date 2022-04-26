@@ -17,6 +17,6 @@ my_project:
     - models.py
     - views.py
     - templates:
-      - mainapp:
+      - authapp:
         - base.html
         - index.html
